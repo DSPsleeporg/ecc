@@ -1,4 +1,4 @@
-name: ecc
+name: ecc-env
 channels:
   - conda-forge
   - defaults

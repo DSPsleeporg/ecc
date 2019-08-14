@@ -3,7 +3,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import h5py, time, os, warnings
 
-from cloudmap import image_utils as iut
+from ecc import image_utils as iut
 
 ##### PLOT STYLES #####
 plt.style.use('seaborn-white')

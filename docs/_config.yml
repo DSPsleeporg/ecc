@@ -1,6 +1,6 @@
 #theme: jekyll-theme-slate
 remote_theme: pmarsceill/just-the-docs
-title: easy_cell_counter docs
+title: ecc docs
 
 # Aux links for the upper right navigation
 aux_links:

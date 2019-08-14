@@ -1,11 +1,3 @@
----
-title: Segmenting objects
-nav_order: 7
----
-
-## Example script
-
-```python
 from ecc.cellfinder import CellFinder
 
 # create a new instance
@@ -37,4 +29,3 @@ cf.set_prob_image_path('../data/classifier-result/prob_image.h5')
 
 # run!
 cf.run_main()
-```

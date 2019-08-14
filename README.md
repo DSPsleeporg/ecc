@@ -1,10 +1,9 @@
-# easy_cell_counter (ecc)
-
+# ecc (easy cell counter)
 For more detailed documentation, see https://dspsleeporg.github.io/easy_cell_counter/.
 
 ## Installation
 ### System requirements
-ecc has been developed and tested on Linux platform (Ubuntu 16.04 LTS and CentOS 7).
+ecc has been developed and tested on Linux platforms (Ubuntu 16.04 LTS and CentOS 7).
 
 ### Install ilastik
 ecc uses [ilastik](https://www.ilastik.org/) to train a pixel classifier. Follow [this page](https://www.ilastik.org/documentation/basics/installation) for the installation. For the best compatibility, it is recomennded to use **version 1.3.0 or 1.3.2**.
@@ -26,16 +25,14 @@ $ cd easy_cell_counter
 $ conda env create -f environment.yml
 ```
 
-This will create a new conda environment named `ecc` (Note: name conflict may occur if you already have a conda environment named ecc).
+This will create a new conda environment named `ecc-env`.
 
 Now activate the new environment by:
 ```bash
-$ conda activate ecc
+$ conda activate ecc-env
 ```
 
 Then, **within the virtual environment**, install ecc:
 ```bash
-(ecc) $ pip install .
+(ecc-env) $ pip install .
 ```
-
-

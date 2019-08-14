@@ -4,7 +4,7 @@ import numpy as np
 import scipy.ndimage as ndi
 from matplotlib import pyplot as plt
 
-from easy_cell_counter import image_utils as iut
+from ecc import image_utils as iut
 
 ##### PLOT STYLES #####
 plt.style.use('seaborn-white')

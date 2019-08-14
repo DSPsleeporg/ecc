@@ -20,7 +20,7 @@ import pandas as pd
 import scipy.ndimage as ndi
 import warnings
 
-from easy_cell_counter import image_utils as iut
+from ecc import image_utils as iut
 
 class Reader( mlp.Process ):
 	"""
