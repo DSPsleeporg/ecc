@@ -1,0 +1,24 @@
+.vscode
+
+# Python
+*.py[co]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+deb_dist
+develop-eggs
+.installed.cfg
+
+# documentation stuff
+docs/_site
+
+# test data
+data
