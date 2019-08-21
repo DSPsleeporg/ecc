@@ -49,4 +49,6 @@ Now you are ready to use ecc. To check that the installation was successful, lau
 ```
 This will print out the help information about the package.
 
-To learn how to use ecc, read the [documentation](https://dspsleeporg.github.io/ecc/).
+---
+
+To learn how to use ecc, please read the [documentation](https://dspsleeporg.github.io/ecc/).
