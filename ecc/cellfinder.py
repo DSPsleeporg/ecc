@@ -618,7 +618,7 @@ class CellFinder:
 
 		# default parameters
 		self.verbose = True
-		self.num_workers = 8
+		self.num_workers = mlp.cpu_count()
 		self.nickname = "untitled"
 		self.blocksize = 120
 		self.overlap = 20

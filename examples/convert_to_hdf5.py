@@ -10,7 +10,7 @@ out = '../data/tmp.hdf5'
 # load image
 print("Loading input image...")
 if f.endswith(('.tif', '.tiff')):
-    print("Input image type: TIFF")
+    print("Input image type: 3D TIFF")
     stack = iut.load_tiff_image(f)
 elif f.endswith(('.nii', '.nii.gz')):
     print("Input image type: NIfTI")

@@ -5,4 +5,4 @@ nav_order: 1
 
 # Installation
 
-See [https://github.com/DSPsleeporg/easy_cell_counter/blob/master/README.md](https://github.com/DSPsleeporg/easy_cell_counter/blob/master/README.md)
+See [https://github.com/DSPsleeporg/ecc](https://github.com/DSPsleeporg/ecc)

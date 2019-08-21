@@ -9,7 +9,7 @@ ecc utilizes the pixel classifier implemented by [ilastik](https://www.ilastik.o
 
 In this step, we will use ilastik's GUI to train a pixel classifier. Once a good pixel classifier is trained, you can apply that classifier to a group of brains, using the `PixelClassifier` class from `ecc.ilastik_wrapper` module, which will be explained in [Applying ilastik classifier](classifier.html). The resulting "probability images" are then used to identify single cells.
 
-It is recommend that users train independent classifier for each label. For example, given parvalbumin (PV) and somatostatin (Sst) immunostaining images, a separate classifier should be trained for each label. This is because different antibody have different signal strength, background levels and fiber staining patterns, and thus, it is hard to train a "generalized" classifier that works well against all labels. Once trained, PV classifier can be applied to other PV data, as long as the identical staining condition and imaging instrument is used.
+It is recommend that users train independent classifier for each label. For example, given parvalbumin (PV) and somatostatin (Sst) immunostaining images, a separate classifier should be trained for each label (i.e. "PV classifier" and "Sst classifier"). This is because different antibody have different signal strength, background levels and non-specific staining patterns, and thus, it is hard to train a "generalized" classifier that works well against all labels. Once trained, PV classifier can be applied to other PV image, as long as the identical staining and imaging condition is used.
 
 ## ilastik training steps
 
@@ -28,7 +28,7 @@ Here, a chunked HDF5 file should be used. Using TIFF image stack should be avoid
 
 Training data should cover **all** of the image context present in whole brain image. Brain is a very heterogeneous organ, and image context (such as signal intensity and background level) may significantly differ depending on the brain region. For this reason, training image may want to be entire or hemisphere brain.
 
-When importing input images, ilastik project holds the input image either by `absolute link` or `relative link` or `making a new copy`. `Absolute link` or `relative link` keeps the file size of the project file minimum by not making duplicate copy. However, the entire project file becomes invalid if the path gets broken, so care must be taken when moving and copying the files. `making a new copy` is useful when making the ilastik project self-contained (eliminating worries about broken links), in exchange for larger file size. These options can be changed by "Input data" > (right click on the list) > "edit properties" > "Storage", as shown in the screenshot below:
+When importing input images, ilastik project holds the input image either by `absolute link` or `relative link` or `making a new copy`. `Absolute link` or `relative link` keeps the file size of the project file minimum by not making a duplicate copy. However, the entire project file becomes invalid if the path gets broken, so care must be taken when moving and copying the files. `making a new copy` is useful when making the ilastik project self-contained (eliminating worries about broken links), in exchange for larger file size. These options can be changed by "Input data" > (right click on the list) > "edit properties" > "Storage", as shown in the screenshot below:
 
 <img src="imgs/ilastik/storage-option.png" alt="ilastik project" style="width:75%">
 
@@ -57,13 +57,13 @@ Usually, three labels should be defined:
   * 2 : False signals that have relatively strong intensity, such as bright neurites extending from cells or non-specific binding of antibodies on blood vessels or fiber bundles
   * 3 : Background
 
-Caution!
-{: .label .label-yellow }
-**Label 1 must always be the object of interest! Otherwise ecc does not work!**
-
 <img src="imgs/ilastik/labels.png" alt="ilastik project" style="width:50%">
 
-Then using the pen tool, start annotating pixels.
+Caution!
+{: .label .label-yellow }
+**Label 1 must always be the object of interest! Otherwise ecc does not work!!**
+
+Then, using the pen tool, start annotating pixels.
 
 <img src="imgs/ilastik/ilastik_label.png" alt="ilastik project" style="width:50%">
 
@@ -72,7 +72,7 @@ Some annotation tips are:
   * Boundary between labels (e.g. cell edges) should carefully and intensively annotated
   * Try to cover as many image context as possible. Also remember that in order for classifier to learn something, just "one example" is not enough. Similar image contexts should be annotated several times to have statistical effect.
 
-How much annotation should be performed? There is unfortunately no clear answer to that question. Generally speaking (and quite obviously), more training data is better. In [CUBIC-Cloud paper]() more than 5000 voxels (corresponding to roughly 1000 cells) were annotated as label 1 per dataset.
+How much annotation should be performed? There is unfortunately no clear answer to that question. Generally speaking (and quite obviously), more training data is better. In [CUBIC-Cloud paper]() more than 5000 voxels (corresponding to roughly 1000 cells) were annotated as label 1 (per one training session).
 
 By clicking "Live Update" button in the GUI, you can quickly check how well the classifier is performing (like shown below). Use this preview as a guidance to refine your annotation.
 
@@ -88,13 +88,13 @@ Now, proceed to [Applying ilastik classifier](classifier.html).
 
 You can use ilastik's built-in GUI to create training data, as explained above. 
 
-However, you may find the software's response a little slow, especially when you are handling a very large 3D image.
+However, you may find the software's response a little too slow, especially when you are handling a very large 3D image.
 
-To annotate a massive 3D images, users may want to consider using a specialized software for image annotation called [ITK-SNAP](http://www.itksnap.org/).
+To annotate a large 3D images, users may consider using a specialized software for image annotation, called [ITK-SNAP](http://www.itksnap.org/).
 
-[ITK-SNAP](http://www.itksnap.org/) is a medical and biological image annotation tool, offered as a free and open-source software. It offers fast image rendering and useful palette of annotation tools. So, with ITK-SNAP image annotation may be much quicker.
+[ITK-SNAP](http://www.itksnap.org/) is a medical and biological image annotation tool, offered as a free and open-source software. It offers fast image rendering and useful palette of annotation tools. So, image annotation may become much quicker with ITK-SNAP.
 
-The tricky part is that ITK-SNAP only accepts [NIfTI image format](https://nipy.org/nibabel/nifti_images.html), so users must convert their image data accordingly. This can be done by using ImageJ or writing a custom code. Further, ITK-SNAP outputs the annotation image as NIfTI format. To import in ilastik, it must be converted into HDF5.
+The tricky part is that ITK-SNAP only accepts [NIfTI image format](https://nipy.org/nibabel/nifti_images.html), so users must convert their image data accordingly. This can be done by using ImageJ or writing a custom code. Further, ITK-SNAP outputs the annotation as NIfTI image. To import it in ilastik, it must be converted into compatible data format, such as HDF5.
 
 Annotations prepared by ITK-SNAP can be imported into ilastik project by right-clicking **"labels"** > **"import..."**, as shown below.
 

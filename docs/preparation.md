@@ -6,7 +6,7 @@ nav_order: 4
 # Data preparation
 To efficiently process large 3D images (> 10GB), ecc is designed to work with [HDF5](https://www.hdfgroup.org/solutions/hdf5/). In particular, ecc (and ilastik as well) utilizes the HDF5's feature called [chuncked storage](https://support.hdfgroup.org/HDF5/doc/Advanced/Chunking/index.html), which helps to increase the speed to read/write a subvolume of the large 3D array.
 
-To run this conversion, you can either write your own code, or use a simple python functions offered by ecc. A bunch of utility functions are defined in `ecc.image_utils` module. The chunk size should usually be about (100,100,100) or similar size.
+To do this image format conversion, you can either write your own code, or use a simple python functions offered by ecc. A bunch of utility functions are defined in `ecc.image_utils` module. The chunk size should usually be about (100,100,100) or similar size.
 
 ## Example python script
 <https://github.com/DSPsleeporg/ecc/blob/master/examples/convert_to_hdf5.py>
@@ -24,7 +24,7 @@ out = '../data/tmp.hdf5'
 # load image
 print("Loading input image...")
 if f.endswith(('.tif', '.tiff')):
-    print("Input image type: TIFF")
+    print("Input image type: 3D TIFF")
     stack = iut.load_tiff_image(f)
 elif f.endswith(('.nii', '.nii.gz')):
     print("Input image type: NIfTI")
