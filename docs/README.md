@@ -7,6 +7,7 @@ bundle install
 ```bash
 bundler exec jekyll build
 ```
+This will generate a static web site content in `/_site`.
 
 ## Serve locally (and watch changes)
 ```bash
