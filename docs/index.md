@@ -11,7 +11,7 @@ ecc is a small Python program to perform cell detection. It will identify the XY
 
 The detected cell table (given as csv format) can be further analyzed and visualized by using [CUBIC-Cloud](https://opencubic.org) cloud computing service.
 
-## List of content
+## Table of contents
    * [Installation](installation.html)
    * [Workflow overview](workflow.html)
    * [About Brain coordinates](coordinates.html)
