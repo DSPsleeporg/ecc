@@ -25,7 +25,7 @@ $ git clone https://github.com/DSPsleeporg/easy_cell_counter.git
 Then, go to the directory and create a new conda environment:
 
 ```bash
-$ cd easy_cell_counter
+$ cd ecc
 $ conda env create -f environment.yml
 ```
 
