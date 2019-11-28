@@ -6,8 +6,11 @@ ecc is a small Python program to perform cell detection. It will identify the XY
 
 
 ## Installation
+
 ### System requirements
-ecc has been developed and tested on Linux platforms (Ubuntu 16.04 LTS and CentOS 7).
+ecc has been developed and tested on Linux platforms (Ubuntu 16.04 LTS and CentOS 7). The code requires Python 3.7 or later.
+
+To run the program, we recommend at least 8GB of system RAM and four cores of CPUs. No other specific hardware are required.
 
 ### Install ilastik
 ecc uses [ilastik](https://www.ilastik.org/) to train a pixel classifier. Follow [this page](https://www.ilastik.org/documentation/basics/installation) to install ilastik. For the best compatibility, it is recomennded to use **version 1.3.0 or 1.3.2**.
@@ -40,6 +43,8 @@ Then, **within the virtual environment**, install ecc:
 ```bash
 (ecc-env) $ pip install .
 ```
+
+With good internet connection, the whole installation should be finished in about 10 minutes.
 
 Now you are ready to use ecc. To check that the installation was successful, launch python interpreter and type the following command:
 ```python
