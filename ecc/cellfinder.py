@@ -320,7 +320,7 @@ class Worker( mlp.Process ):
 		volumes = [ e[1] for e in medium ]
 		if obj_ids: # skip if empty
 			coms = ndi.center_of_mass( binary, lbl, obj_ids )
-			coms = np.array( coms ).round().astype( np.int ) # convert to integer
+			coms = np.array( coms ).round().astype("int") # convert to integer
 			for i, com in enumerate( coms ):
 				this_idx = obj_ids[i]
 				deltaI, bg = self._get_intensity( raw, lbl, this_idx, com,
