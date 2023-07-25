@@ -191,7 +191,7 @@ class Reader( mlp.Process ):
 			mask = self.dset_mask[ s[0]:s[1], s[2]:s[3], s[4]:s[5] ]
 			mask = mask > 0
 		else:
-			mask = np.zeros( raw.shape, dtype=np.bool )
+			mask = np.zeros( raw.shape, dtype="bool" )
 
 		return raw, prob, mask
 
